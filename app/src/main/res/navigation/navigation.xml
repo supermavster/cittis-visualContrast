@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
+            app:startDestination="@id/login">
+
+    <fragment
+            android:id="@+id/login"
+            android:name="com.cittis.visualcontrast.controller.firebase.login.Login"
+            android:label="Blank"
+            tools:layout="@layout/fragment_login">
+        <argument android:name="isLogin" app:argType="boolean"/>
+        <action android:id="@+id/action_login_to_municipalities" app:destination="@id/municipalities"/>
+
+    </fragment>
+    <fragment android:id="@+id/municipalities" android:name="com.cittis.visualcontrast.view.Municipalities"
+              android:label="fragment_municipalities" tools:layout="@layout/fragment_municipalities">
+        <action android:id="@+id/action_municipalities_to_generalConfig" app:destination="@id/generalConfig"/>
+    </fragment>
+
+    <fragment android:id="@+id/generalConfig" android:name="com.cittis.visualcontrast.view.GeneralConfig"
+              android:label="fragment_general_config" tools:layout="@layout/fragment_general_config">
+        <action android:id="@+id/action_generalConfig_to_start" app:destination="@id/start"/>
+    </fragment>
+    <fragment android:id="@+id/start" android:name="com.cittis.visualcontrast.view.Start"
+              android:label="fragment_start" tools:layout="@layout/fragment_start">
+        <action android:id="@+id/action_start_to_aforo" app:destination="@id/aforo"/>
+    </fragment>
+    <fragment android:id="@+id/aforo" android:name="com.cittis.visualcontrast.view.Aforo" android:label="fragment_aforo"
+              tools:layout="@layout/fragment_aforo">
+        <action android:id="@+id/action_aforo_self" app:destination="@id/aforo"/>
+    </fragment>
+</navigation>
